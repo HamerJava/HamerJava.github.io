@@ -2,7 +2,8 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 20px;
-    background: #f5f7f9;
+    background: #1e1e1e;
+    color: #d4d4d4;
 }
 
 .container {
@@ -18,18 +19,18 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: white;
+    background: #252526;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     height: 100%;
 }
 
 #preview {
-    background: white;
+    background: #252526;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
     height: 100%;
     overflow: auto;
 }
@@ -47,10 +48,16 @@ textarea {
     padding: 15px;
     font-family: 'Monaco', 'Consolas', monospace;
     font-size: 14px;
-    border: 1px solid #e0e4e8;
+    border: 1px solid #333;
     border-radius: 8px;
     resize: none;
-    background: #f8fafc;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    line-height: 1.5;
+}
+
+textarea::placeholder {
+    color: #666;
 }
 
 .button-group {
@@ -65,21 +72,18 @@ button {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.2s;
+    background: #2d2d2d;
+    color: #d4d4d4;
 }
 
 .primary-button {
-    background: #007BFF;
+    background: #0e639c;
     color: white;
-}
-
-.secondary-button {
-    background: #e0e4e8;
-    color: #333;
 }
 
 button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #0e639c;
 }
 
 iframe {
@@ -94,10 +98,16 @@ iframe {
     display: none;
     margin-top: 15px;
     padding: 10px;
-    background: #f0f4f8;
+    background: #333;
     border-radius: 8px;
+    color: #d4d4d4;
 }
 
 .url-container.visible {
     display: block;
+}
+
+h2 {
+    color: #d4d4d4;
+    margin-top: 0;
 }

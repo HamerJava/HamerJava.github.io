@@ -6,6 +6,7 @@
     <title>Widget Editor</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -17,8 +18,7 @@
             </div>
             <div class="button-group">
                 <button id="previewButton" class="primary-button">Vorschau</button>
-                <button id="saveButton" class="primary-button">Speichern</button>
-                <button id="copyButton" class="secondary-button">URL kopieren</button>
+                <button id="copyButton" class="primary-button">Widget URL kopieren</button>
             </div>
             <div class="url-container"></div>
         </div>
@@ -27,6 +27,7 @@
             <iframe id="widgetPreview"></iframe>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prismjs/1.29.0/prism.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
