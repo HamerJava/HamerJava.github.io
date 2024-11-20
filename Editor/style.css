@@ -1,45 +1,103 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
     padding: 20px;
+    background: #f5f7f9;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+    height: calc(100vh - 100px);
 }
 
 #editor {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    font-family: monospace;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    padding: 10px 15px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0056b3;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 #preview {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    overflow: auto;
+}
+
+.code-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+    overflow: auto;
+}
+
+textarea {
+    flex: 1;
+    padding: 15px;
+    font-family: 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    border: 1px solid #e0e4e8;
+    border-radius: 8px;
+    resize: none;
+    background: #f8fafc;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.primary-button {
+    background: #007BFF;
+    color: white;
+}
+
+.secondary-button {
+    background: #e0e4e8;
+    color: #333;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 iframe {
     width: 100%;
-    height: 300px;
+    height: calc(100% - 40px);
     border: none;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.url-container {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f4f8;
+    border-radius: 8px;
+}
+
+.url-container.visible {
+    display: block;
 }
