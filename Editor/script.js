@@ -1,27 +1,31 @@
 let currentWidgetUrl = null;
 
-document.getElementById("previewButton").addEventListener("click", () => {
+// Live Preview Event Listener für alle Textareas
+document.getElementById("htmlInput").addEventListener("input", updatePreview);
+document.getElementById("cssInput").addEventListener("input", updatePreview);
+document.getElementById("jsInput").addEventListener("input", updatePreview);
+
+// Initial Preview beim Laden
+document.addEventListener("DOMContentLoaded", updatePreview);
+
+// Copy Button Event Listener
+document.getElementById("copyButton").addEventListener("click", generateAndCopyUrl);
+
+function updatePreview() {
     const widgetContent = generateWidgetContent();
     const iframe = document.getElementById("widgetPreview");
     iframe.srcdoc = widgetContent;
-});
-
-document.getElementById("copyButton").addEventListener("click", generateAndCopyUrl);
+}
 
 function generateAndCopyUrl() {
     const widgetContent = generateWidgetContent();
     try {
-        // Generiere eine eindeutige ID
         const widgetId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-        
-        // Speichere Widget im localStorage
         localStorage.setItem(`widget_${widgetId}`, widgetContent);
         
-        // Generiere die Widget-URL
         const baseUrl = window.location.origin;
         currentWidgetUrl = `${baseUrl}/widget.html?id=${widgetId}`;
         
-        // Zeige die URL an
         const urlContainer = document.querySelector('.url-container');
         urlContainer.innerHTML = `
             <div class="url-display">
@@ -30,7 +34,6 @@ function generateAndCopyUrl() {
             </div>`;
         urlContainer.classList.add('visible');
         
-        // Kopiere URL
         navigator.clipboard.writeText(currentWidgetUrl);
         showNotification('Widget URL kopiert!');
     } catch (error) {
@@ -68,18 +71,3 @@ function generateWidgetContent() {
 </body>
 </html>`;
 }
-
-// Event Listener für alle Textarea-Inputs
-document.getElementById("htmlInput").addEventListener("input", updatePreview);
-document.getElementById("cssInput").addEventListener("input", updatePreview);
-document.getElementById("jsInput").addEventListener("input", updatePreview);
-
-// Funktion für Live-Preview
-function updatePreview() {
-    const widgetContent = generateWidgetContent();
-    const iframe = document.getElementById("widgetPreview");
-    iframe.srcdoc = widgetContent;
-}
-
-// Initialisiere Preview beim Laden
-document.addEventListener("DOMContentLoaded", updatePreview);
