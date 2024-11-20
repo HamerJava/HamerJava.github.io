@@ -68,3 +68,18 @@ function generateWidgetContent() {
 </body>
 </html>`;
 }
+
+// Event Listener für alle Textarea-Inputs
+document.getElementById("htmlInput").addEventListener("input", updatePreview);
+document.getElementById("cssInput").addEventListener("input", updatePreview);
+document.getElementById("jsInput").addEventListener("input", updatePreview);
+
+// Funktion für Live-Preview
+function updatePreview() {
+    const widgetContent = generateWidgetContent();
+    const iframe = document.getElementById("widgetPreview");
+    iframe.srcdoc = widgetContent;
+}
+
+// Initialisiere Preview beim Laden
+document.addEventListener("DOMContentLoaded", updatePreview);
