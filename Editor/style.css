@@ -89,7 +89,7 @@ button {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.2s;
-    background: #2d2d2d;
+    background: #8c8c8c;
     color: #d4d4d4;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
