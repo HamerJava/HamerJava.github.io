@@ -32,3 +32,6 @@ body {
 #weekday {
     font-size: 16px;
     color: #636E72;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
