@@ -4,16 +4,23 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #282c34;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    background: transparent;
+    color: #2D3436;
 }
 
 #clock {
-    font-size: 48px;
-    background: #333;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
+
+#time {
