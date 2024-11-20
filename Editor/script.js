@@ -20,11 +20,11 @@ function updatePreview() {
 function generateAndCopyUrl() {
     const widgetContent = generateWidgetContent();
     try {
-        // Komprimiere den Content
-        const compressed = compress(widgetContent);
+        // Encode widget content als Base64
+        const encodedContent = btoa(encodeURIComponent(widgetContent));
         
         const baseUrl = window.location.origin;
-        currentWidgetUrl = `${baseUrl}/w#${compressed}`;
+        currentWidgetUrl = `${baseUrl}/widget.html#content=${encodedContent}`;
         
         const urlContainer = document.querySelector('.url-container');
         urlContainer.innerHTML = `
@@ -40,18 +40,6 @@ function generateAndCopyUrl() {
         showNotification('Fehler beim Generieren der Widget-URL', 'error');
         console.error(error);
     }
-}
-
-// Hilfsfunktion zum Komprimieren des Contents
-function compress(content) {
-    // Entferne unnötige Whitespaces
-    content = content.replace(/\s+/g, ' ').trim();
-    
-    // Base64 kodieren und URL-sicher machen
-    return btoa(encodeURIComponent(content))
-        .replace(/\+/g, '-')
-        .replace(/\//g, '_')
-        .replace(/=+$/, '');
 }
 
 function showNotification(message, type = 'success') {
@@ -72,8 +60,7 @@ function generateWidgetContent() {
     
     // Berechne die tatsächliche Größe des Widgets aus der Preview
     const iframe = document.getElementById("widgetPreview");
-    const width = iframe.contentDocument.documentElement.scrollWidth;
-    const height = iframe.contentDocument.documentElement.scrollHeight;
+
     
     return `<!DOCTYPE html>
 <html lang="de">
@@ -82,15 +69,7 @@ function generateWidgetContent() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Frame-Options" content="ALLOWALL">
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors *">
-    <style>
-        body {
-            margin: 0;
-            width: ${width}px;
-            height: ${height}px;
-            overflow: hidden;
-        }
-        ${css}
-    </style>
+    <style>${css}</style>
 </head>
 <body>
     ${html}
