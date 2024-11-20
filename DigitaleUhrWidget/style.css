@@ -24,3 +24,11 @@ body {
 }
 
 #time {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#weekday {
+    font-size: 16px;
+    color: #636E72;
