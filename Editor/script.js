@@ -9,26 +9,58 @@ document.getElementById("previewButton").addEventListener("click", () => {
 
 document.getElementById("copyButton").addEventListener("click", generateAndCopyUrl);
 
-function generateAndCopyUrl() {
+const API_URL = 'https://api.jsonbin.io/v3/b';
+const API_KEY = '$2a$10$YOUR_API_KEY'; // Ersetze dies mit deinem JSONBin API Key
+
+async function generateAndCopyUrl() {
     const widgetContent = generateWidgetContent();
-    const timestamp = new Date().getTime();
-    const filename = `widget_${timestamp}`;
+    try {
+        // Speichere Widget in JSONBin
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': API_KEY
+            },
+            body: JSON.stringify({
+                content: widgetContent,
+                timestamp: new Date().getTime()
+            })
+        });
+        
+        const data = await response.json();
+        const widgetId = data.metadata.id;
+        
+        // Generiere die Widget-URL
+        currentWidgetUrl = `${window.location.origin}/widget/${widgetId}`;
+        
+        // Zeige die URL an
+        const urlContainer = document.querySelector('.url-container');
+        urlContainer.innerHTML = `
+            <div class="url-display">
+                <span>Widget URL:</span>
+                <code>${currentWidgetUrl}</code>
+            </div>`;
+        urlContainer.classList.add('visible');
+        
+        // Kopiere URL
+        await navigator.clipboard.writeText(currentWidgetUrl);
+        showNotification('Widget URL kopiert!');
+    } catch (error) {
+        showNotification('Fehler beim Speichern des Widgets', 'error');
+        console.error(error);
+    }
+}
+
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
     
-    // Speichere den Widget-Inhalt im localStorage
-    localStorage.setItem(filename, widgetContent);
-    
-    // Generiere die URL
-    currentWidgetUrl = `${window.location.origin}/widgets/${filename}/index.html`;
-    
-    // Zeige die URL an
-    const urlContainer = document.querySelector('.url-container');
-    urlContainer.innerHTML = `Widget URL: ${currentWidgetUrl}`;
-    urlContainer.classList.add('visible');
-    
-    // Kopiere die URL in die Zwischenablage
-    navigator.clipboard.writeText(currentWidgetUrl)
-        .then(() => alert('Widget URL wurde in die Zwischenablage kopiert!'))
-        .catch(err => alert('Fehler beim Kopieren der URL'));
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
 }
 
 function generateWidgetContent() {

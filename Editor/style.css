@@ -132,3 +132,45 @@ h2 {
     color: #d4d4d4;
     margin-top: 0;
 }
+
+.notification {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #1b8555;
+    color: white;
+    font-size: 14px;
+    animation: slideIn 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.error {
+    background: #c41e3a;
+}
+
+.url-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.url-display code {
+    background: #1e1e1e;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
