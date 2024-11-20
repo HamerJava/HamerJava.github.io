@@ -20,11 +20,11 @@ function updatePreview() {
 function generateAndCopyUrl() {
     const widgetContent = generateWidgetContent();
     try {
-        const widgetId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-        localStorage.setItem(`widget_${widgetId}`, widgetContent);
+        // Komprimiere den Content
+        const compressed = compress(widgetContent);
         
         const baseUrl = window.location.origin;
-        currentWidgetUrl = `${baseUrl}/widget.html?id=${widgetId}`;
+        currentWidgetUrl = `${baseUrl}/w#${compressed}`;
         
         const urlContainer = document.querySelector('.url-container');
         urlContainer.innerHTML = `
@@ -37,9 +37,21 @@ function generateAndCopyUrl() {
         navigator.clipboard.writeText(currentWidgetUrl);
         showNotification('Widget URL kopiert!');
     } catch (error) {
-        showNotification('Fehler beim Speichern des Widgets', 'error');
+        showNotification('Fehler beim Generieren der Widget-URL', 'error');
         console.error(error);
     }
+}
+
+// Hilfsfunktion zum Komprimieren des Contents
+function compress(content) {
+    // Entferne unnötige Whitespaces
+    content = content.replace(/\s+/g, ' ').trim();
+    
+    // Base64 kodieren und URL-sicher machen
+    return btoa(encodeURIComponent(content))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
 }
 
 function showNotification(message, type = 'success') {
@@ -58,12 +70,27 @@ function generateWidgetContent() {
     const css = document.getElementById("cssInput").value;
     const js = document.getElementById("jsInput").value;
     
+    // Berechne die tatsächliche Größe des Widgets aus der Preview
+    const iframe = document.getElementById("widgetPreview");
+    const width = iframe.contentDocument.documentElement.scrollWidth;
+    const height = iframe.contentDocument.documentElement.scrollHeight;
+    
     return `<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>${css}</style>
+    <meta http-equiv="X-Frame-Options" content="ALLOWALL">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors *">
+    <style>
+        body {
+            margin: 0;
+            width: ${width}px;
+            height: ${height}px;
+            overflow: hidden;
+        }
+        ${css}
+    </style>
 </head>
 <body>
     ${html}
