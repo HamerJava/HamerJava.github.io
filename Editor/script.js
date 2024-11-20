@@ -4,35 +4,22 @@ document.getElementById("previewButton").addEventListener("click", () => {
     const widgetContent = generateWidgetContent();
     const iframe = document.getElementById("widgetPreview");
     iframe.srcdoc = widgetContent;
-    generateAndCopyUrl();
 });
 
 document.getElementById("copyButton").addEventListener("click", generateAndCopyUrl);
 
-const API_URL = 'https://api.jsonbin.io/v3/b';
-const API_KEY = '$2a$10$YOUR_API_KEY'; // Ersetze dies mit deinem JSONBin API Key
-
-async function generateAndCopyUrl() {
+function generateAndCopyUrl() {
     const widgetContent = generateWidgetContent();
     try {
-        // Speichere Widget in JSONBin
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Master-Key': API_KEY
-            },
-            body: JSON.stringify({
-                content: widgetContent,
-                timestamp: new Date().getTime()
-            })
-        });
+        // Generiere eine eindeutige ID
+        const widgetId = Date.now().toString(36) + Math.random().toString(36).substr(2);
         
-        const data = await response.json();
-        const widgetId = data.metadata.id;
+        // Speichere Widget im localStorage
+        localStorage.setItem(`widget_${widgetId}`, widgetContent);
         
         // Generiere die Widget-URL
-        currentWidgetUrl = `${window.location.origin}/widget/${widgetId}`;
+        const baseUrl = window.location.origin;
+        currentWidgetUrl = `${baseUrl}/widget.html?id=${widgetId}`;
         
         // Zeige die URL an
         const urlContainer = document.querySelector('.url-container');
@@ -44,7 +31,7 @@ async function generateAndCopyUrl() {
         urlContainer.classList.add('visible');
         
         // Kopiere URL
-        await navigator.clipboard.writeText(currentWidgetUrl);
+        navigator.clipboard.writeText(currentWidgetUrl);
         showNotification('Widget URL kopiert!');
     } catch (error) {
         showNotification('Fehler beim Speichern des Widgets', 'error');
