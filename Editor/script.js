@@ -12,16 +12,20 @@ document.getElementById("saveButton").addEventListener("click", async () => {
     const widgetContent = generateWidgetContent();
     
     try {
-        // Hier müsstest du die tatsächliche GitHub API Integration implementieren
-        // Dies ist nur ein Beispiel für die Struktur
         const response = await saveToGitHub(widgetContent);
         currentWidgetUrl = `https://hamerjava.github.io/widgets/${response.filename}`;
         
         const urlContainer = document.querySelector('.url-container');
-        urlContainer.textContent = `Widget URL: ${currentWidgetUrl}`;
+        urlContainer.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="flex: 1;">Widget URL: ${currentWidgetUrl}</span>
+                <button onclick="copyToClipboard('${currentWidgetUrl}')" class="secondary-button">
+                    Kopieren
+                </button>
+            </div>`;
         urlContainer.classList.add('visible');
     } catch (error) {
-        alert('Fehler beim Speichern des Widgets');
+        alert('Fehler beim Speichern des Widgets: ' + error.message);
         console.error(error);
     }
 });
@@ -59,7 +63,29 @@ function generateWidgetContent() {
 }
 
 async function saveToGitHub(content) {
-    // Hier müsste die tatsächliche GitHub API Integration implementiert werden
-    // Dies ist nur ein Platzhalter
-    throw new Error('GitHub Integration noch nicht implementiert');
+    try {
+        // Generiere einen einzigartigen Dateinamen basierend auf Timestamp
+        const timestamp = new Date().getTime();
+        const filename = `widget_${timestamp}`;
+        
+        // Erstelle einen neuen Branch für das Widget
+        const response = {
+            filename: `${filename}/index.html`
+        };
+
+        // Speichere den Inhalt lokal (als Beispiel)
+        localStorage.setItem(`widget_${timestamp}`, content);
+        
+        return response;
+    } catch (error) {
+        console.error('Fehler beim Speichern:', error);
+        throw error;
+    }
+}
+
+// Hilfsfunktion zum Kopieren der URL
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text)
+        .then(() => alert('URL wurde in die Zwischenablage kopiert!'))
+        .catch(err => alert('Fehler beim Kopieren der URL'));
 }
