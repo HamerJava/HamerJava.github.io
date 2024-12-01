@@ -18,29 +18,41 @@ function updatePreview() {
 }
 
 function generateAndCopyUrl() {
-    const widgetContent = generateWidgetContent();
-    try {
-        // Encode widget content als Base64
-        const encodedContent = btoa(encodeURIComponent(widgetContent));
-        
-        const baseUrl = window.location.origin;
-        currentWidgetUrl = `${baseUrl}/widget.html#content=${encodedContent}`;
-        
-        const urlContainer = document.querySelector('.url-container');
-        urlContainer.innerHTML = `
+    const html = document.getElementById("htmlInput").value;
+    const css = document.getElementById("cssInput").value;
+    const js = document.getElementById("jsInput").value;
+  
+    fetch('/api/generate-widget', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ html, css, js })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.widgetUrl) {
+          currentWidgetUrl = data.widgetUrl;
+          const urlContainer = document.querySelector('.url-container');
+          urlContainer.innerHTML = `
             <div class="url-display">
-                <span>Widget URL:</span>
-                <code>${currentWidgetUrl}</code>
+              <span>Widget URL:</span>
+              <code>${currentWidgetUrl}</code>
             </div>`;
-        urlContainer.classList.add('visible');
-        
-        navigator.clipboard.writeText(currentWidgetUrl);
-        showNotification('Widget URL kopiert!');
-    } catch (error) {
-        showNotification('Fehler beim Generieren der Widget-URL', 'error');
+          urlContainer.classList.add('visible');
+  
+          navigator.clipboard.writeText(currentWidgetUrl);
+          showNotification('Widget URL kopiert!');
+        } else {
+          showNotification('Fehler beim Generieren der Widget-URL', 'error');
+        }
+      })
+      .catch(error => {
         console.error(error);
-    }
-}
+        showNotification('Fehler beim Generieren der Widget-URL', 'error');
+      });
+  }
+  
 
 function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
