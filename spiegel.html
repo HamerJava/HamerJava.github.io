@@ -1733,152 +1733,80 @@
                         <section class="lg:mb-40 md:mb-40 sm:mb-32">
                             <h3
                                 class="block text-primary-base dark:text-dm-primary-base font-brandUI font-extrabold lg:text-xl md:text-xl sm:text-l mb-24 leading-tight">
-                                Mehr lesen über</h3>
-                            <div class="flex flex-row shrink-0 overflow-hidden relative font-sans" x-data
-                                x-swiper="{freeMode: true,roundLengths: true,slidesPerView: 'auto',watchOverflow: true}"
-                                x-lazyload
-                                x-subscribe.ad_position_loaded="if (adPositionIds.includes($payload[0])) $swiper.update()">
-                                <div class="polygon-swiper-button-prev hidden absolute bottom-0 left-0 top-0 z-10">
-                                    <span class="flex items-center h-full">
-                                        <span
-                                            class="md:hidden sm:hidden bg-white dark:bg-dm-shade-darkest w-48 text-center cursor-pointer py-20 leading-none"><svg
-                                                width="12" height="12">
-                                                <use xlink:href="#spon-chevron-left-f-s" />
-                                            </svg>
+                                <h3
+                                    class="block text-primary-base dark:text-dm-primary-base font-brandUI font-extrabold lg:text-xl md:text-xl sm:text-l mb-24 leading-tight">
+                                    Mehr lesen über</h3>
+                                <div class="flex flex-row shrink-0 overflow-hidden relative font-sans" x-data
+                                    x-swiper="{freeMode: true,roundLengths: true,slidesPerView: 'auto',watchOverflow: true}"
+                                    x-lazyload
+                                    x-subscribe.ad_position_loaded="if (adPositionIds.includes($payload[0])) $swiper.update()">
+                                    <div class="polygon-swiper-button-prev hidden absolute bottom-0 left-0 top-0 z-10">
+                                        <span class="flex items-center h-full">
+                                            <span
+                                                class="md:hidden sm:hidden bg-white dark:bg-dm-shade-darkest w-48 text-center cursor-pointer py-20 leading-none"><svg
+                                                    width="12" height="12">
+                                                    <use xlink:href="#spon-chevron-left-f-s" />
+                                                </svg>
+                                            </span>
+                                            <span
+                                                class="bg-gradient-to-r from-white dark:from-dm-shade-darkest lg:w-24 md:w-24 sm:w-16 h-full"></span>
                                         </span>
-                                        <span
-                                            class="bg-gradient-to-r from-white dark:from-dm-shade-darkest lg:w-24 md:w-24 sm:w-16 h-full"></span>
-                                    </span>
-                                </div>
-                                <div class="polygon-swiper w-full pr-px">
-                                    <div class="polygon-swiper-wrapper flex">
-                                        <a href="https://www.spiegel.de/thema/ukraine_konflikt/" target="_self"
-                                            title="Russlands Krieg gegen die Ukraine!"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
-                                            <span class="relative bottom-px">Russlands Krieg gegen die Ukrainea</span>
-                                        </a>
-                                        <a href="https://www.spiegel.de/thema/wolodymyr_selensky/" target="_self"
-                                            title="Wolodymyr Selenskyj"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
-                                            <span class="relative bottom-px">Wolodymyr Selenskyj</span>
-                                        </a>
-                                        <a href="https://www.spiegel.de/thema/marco_rubio/" target="_self"
-                                            title="Marco Rubio"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
-                                            <span class="relative bottom-px">Marco Rubio</span>
-                                        </a>
-                                        <a href="https://www.spiegel.de/thema/ukraine/" target="_self" title="Ukraine"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
-                                            <span class="relative bottom-px">Ukraine</span>
-                                        </a>
-                                        <a href="https://www.spiegel.de/thema/usa/" target="_self" title="USA"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
-                                            <span class="relative bottom-px">USA</span>
-                                        </a>
-                                        <a href="https://www.spiegel.de/thema/russland/" target="_self" title="Russland"
-                                            class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0">
-                                            <span class="relative bottom-px">Russland</span>
-                                        </a>
                                     </div>
-                                </div>
-                                <div class="polygon-swiper-button-next absolute bottom-0 right-0 top-0 z-10">
-                                    <span class="flex items-center h-full">
-                                        <span
-                                            class="bg-gradient-to-l from-white dark:from-dm-shade-darkest lg:w-24 md:w-24 sm:w-16 h-full"></span>
-                                        <span
-                                            class="md:hidden sm:hidden bg-white dark:bg-dm-shade-darkest w-48 text-center cursor-pointer py-20 leading-none"><svg
-                                                width="12" height="12">
-                                                <use xlink:href="#spon-chevron-right-f-s" />
-                                            </svg>
+                                    <div class="polygon-swiper w-full pr-px">
+                                        <div class="polygon-swiper-wrapper flex">
+                                            <a href="https://www.spiegel.de/thema/internetkriminalitaet/" target="_self"
+                                                title="Internetkriminalität"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Internetkriminalität</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/internet/" target="_self"
+                                                title="Internet"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Internet</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/antonio_guterres/" target="_self"
+                                                title="António Guterres"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">António Guterres</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/dell/" target="_self" title="Dell"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Dell</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/meta/" target="_self" title="Meta"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Meta</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/vietnam/" target="_self"
+                                                title="Vietnam"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Vietnam</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/technik/" target="_self"
+                                                title="Technik"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0 mr-16">
+                                                <span class="relative bottom-px">Technik</span>
+                                            </a>
+                                            <a href="https://www.spiegel.de/thema/kriminalitaet/" target="_self"
+                                                title="Kriminalität"
+                                                class="polygon-swiper-slide leading-normal whitespace-nowrap cursor-pointer bg-white dark:bg-dm-shade-darkest text-black dark:text-shade-lightest border border-shade-lighter hover:border-black dark:hover:border-white focus:bg-shade-lightest dark:focus:bg-black focus:border-black dark:focus:border-white active:bg-shade-lightest dark:active:bg-black active:border-black dark:active:border-white disabled:bg-white dark:disabled:bg-dm-shade-darkest disabled:text-shade-base disabled:cursor-not-allowed disabled:border-shade-lighter font-sansUI px-16 py-6 text-base rounded shrink-0">
+                                                <span class="relative bottom-px">Kriminalität</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="polygon-swiper-button-next absolute bottom-0 right-0 top-0 z-10">
+                                        <span class="flex items-center h-full">
+                                            <span
+                                                class="bg-gradient-to-l from-white dark:from-dm-shade-darkest lg:w-24 md:w-24 sm:w-16 h-full"></span>
+                                            <span
+                                                class="md:hidden sm:hidden bg-white dark:bg-dm-shade-darkest w-48 text-center cursor-pointer py-20 leading-none"><svg
+                                                    width="12" height="12">
+                                                    <use xlink:href="#spon-chevron-right-f-s" />
+                                                </svg>
+                                            </span>
                                         </span>
-                                    </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-                        <section>
-                            <h3
-                                class="block text-primary-base dark:text-dm-primary-base font-brandUI font-extrabold lg:text-xl md:text-xl sm:text-l lg:mb-24 md:mb-24 sm:mb-16 leading-tight">
-                                Verwandte Artikel</h3>
-                            <ul class="font-sansUI font-bold text-base relative pl-18">
-                                <li class="pl-6 list-disc">
-                                    <div class="flex justify-between items-center">
-                                        <a href="https://www.spiegel.de/ausland/ukraine-verhandlungen-us-aussenminister-marco-rubio-spricht-von-bestem-treffen-seit-trumps-amtsbeginn-a-e9060ace-a886-47e9-8eb1-3e0ff2714139"
-                                            target="_self"
-                                            class="hover:opacity-moderate text-black dark:text-shade-lightest lg:mr-24 md:mr-24 sm:mr-16"
-                                            title="Ukraineverhandlungen: Rubio spricht von »bestem Treffen« seit Trumps Amtsbeginn"><span
-                                                class="serifmode:font-serifUI">Ukraineverhandlungen: Rubio spricht von
-                                                »bestem Treffen« seit Trumps Amtsbeginn</span>
-                                        </a>
-                                        <button class="flex hover:opacity-distinct text-black dark:text-shade-lightest"
-                                            data-component="BookmarkButton"
-                                            data-settings="{&#34;collection&#34;:&#34;article&#34;,&#34;documentId&#34;:&#34;e9060ace-a886-47e9-8eb1-3e0ff2714139&#34;}"
-                                            data-area="bookmark_button" data-sara-click-el="button"
-                                            data-sara-click-suppress title="Zur Merkliste hinzufügen">
-                                            <span class="sr-only" data-bookmark-button-el="label">Zur Merkliste
-                                                hinzufügen</span>
-                                            <span class="leading-none" data-bookmark-button-el="icon-inactive"><svg
-                                                    id="spon-bookmark-l" width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-                                                    aria-hidden="true">
-                                                    <path class="stroke-current"
-                                                        d="M6.5 19.3697V4.5H16.5V19.3697L12.1727 15.4358C11.7913 15.089 11.2087 15.089 10.8273 15.4358L6.5 19.3697Z"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="leading-none hidden" data-bookmark-button-el="icon-active"><svg
-                                                    id="spon-bookmark-f-l" width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-                                                    aria-hidden="true">
-                                                    <path
-                                                        d="M6 19.37V4.5a.5.5 0 01.5-.5h10a.5.5 0 01.5.5v14.87a.5.5 0 01-.836.37l-4.328-3.934a.5.5 0 00-.672 0L6.836 19.74A.5.5 0 016 19.37z"
-                                                        class="fill-current" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li
-                                    class="h-px -ml-18 lg:mt-20 md:mt-12 sm:mt-12 py-2 border-separator-b lg:mb-20 md:mb-12 sm:mb-12">
-                                </li>
-                                <li class="pl-6 list-disc">
-                                    <div class="flex justify-between items-center">
-                                        <a href="https://www.spiegel.de/ausland/ukraine-verhandlungen-in-genf-der-gegenvorschlag-der-europaeer-a-fc892eec-0212-4a74-a19f-a7ff69c546da"
-                                            target="_self"
-                                            class="hover:opacity-moderate text-black dark:text-shade-lightest lg:mr-24 md:mr-24 sm:mr-16"
-                                            title="Ukraine-Verhandlungen in Genf: Der Gegenvorschlag der Europäer">
-                                            <span class="inline-flex align-middle leading-none relative bottom-px mr-4"
-                                                data-contains-flags="plus-paid">
-                                                <span
-                                                    class="inline-block mr-4 text-primary-base dark:text-dm-primary-base"
-                                                    data-flag-name="plus-paid"><svg width="16" height="16">
-                                                        <use xlink:href="#spon-spon-paid-flag-m" />
-                                                    </svg>
-                                                </span>
-                                            </span><span class="serifmode:font-serifUI">Ukraine-Verhandlungen in Genf:
-                                                Der Gegenvorschlag der Europäer</span>
-                                        </a>
-                                        <button class="flex hover:opacity-distinct text-black dark:text-shade-lightest"
-                                            data-component="BookmarkButton"
-                                            data-settings="{&#34;collection&#34;:&#34;article&#34;,&#34;documentId&#34;:&#34;fc892eec-0212-4a74-a19f-a7ff69c546da&#34;}"
-                                            data-area="bookmark_button" data-sara-click-el="button"
-                                            data-sara-click-suppress title="Zur Merkliste hinzufügen">
-                                            <span class="sr-only" data-bookmark-button-el="label">Zur Merkliste
-                                                hinzufügen</span>
-                                            <span class="leading-none" data-bookmark-button-el="icon-inactive"><svg
-                                                    width="24" height="24">
-                                                    <use xlink:href="#spon-bookmark-l" />
-                                                </svg>
-                                            </span>
-                                            <span class="leading-none hidden" data-bookmark-button-el="icon-active"><svg
-                                                    width="24" height="24">
-                                                    <use xlink:href="#spon-bookmark-f-l" />
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </li>
-                                <li class="h-px -ml-18 lg:mt-20 md:mt-12 sm:mt-12 py-2"></li>
-                            </ul>
                         </section>
                     </div>
                     <div x-show="outbrainFurtherReadsReady" x-cloak>
